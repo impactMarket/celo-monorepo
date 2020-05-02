@@ -12,7 +12,7 @@ import { AVAILABLE_LANGUAGES } from 'src/config'
 import i18n, { Namespaces, withTranslation } from 'src/i18n'
 import logo from 'src/images/celo-logo.png'
 import { Screens } from 'src/navigator/Screens'
-
+import StoryBook from 'src/storybook/index'
 interface State {
   selectedAnswer: string | null
 }
@@ -53,15 +53,18 @@ export class Language extends React.Component<Props, State> {
   render() {
     const { t } = this.props
     return (
-      <LanguageSelectUI
-        logo={logo}
-        onLanguageSelected={this.onSelectAnswer}
-        onSubmit={this.onSubmit}
-        isSubmitDisabled={!this.state.selectedAnswer}
-        currentSelected={this.state.selectedAnswer}
-        languages={AVAILABLE_LANGUAGES}
-        t={t}
-      />
+      <>
+        <StoryBook />
+        <LanguageSelectUI
+          logo={logo}
+          onLanguageSelected={this.onSelectAnswer}
+          onSubmit={this.onSubmit}
+          isSubmitDisabled={!this.state.selectedAnswer}
+          currentSelected={this.state.selectedAnswer}
+          languages={AVAILABLE_LANGUAGES}
+          t={t}
+        />
+      </>
     )
   }
 }
